@@ -10,36 +10,30 @@ function ProofList() {
   dataSource = dataSource.cloneWithRows(proofs)
 
   const row = (rowData, sectionID, rowID) => {
-    let panel = () => {
-      return (
-        <Accordion.Panel
-          style={{ width: '100%', height: 'auto' }}
-          key={1}
-          header={
-            <Flex align='center' style={{ minHeight: '44px' }}>
-              <div style={{ fontFamily: 'BebasNueve', fontSize: '18px', height: 'auto', overflow: 'auto', whiteSpace: 'normal', lineHeight: '24px', paddingTop: '4px', paddingBottom: '4px' }}>
-                <b>{(parseInt(rowID) + 1)}</b>. {rowData.title}
-              </div>
-            </Flex>
-          }
-        >
-          <WingBlank>
-            {rowData.steps.map((entry) =>
-              <div key={Math.random()}>
-                <WhiteSpace size="xs" />
-                <div className="smallProofSteps"> {entry} </div>
-              </div>
-            )}
-            <WhiteSpace size="sm" />
-          </WingBlank>
-        </Accordion.Panel>
-      )
-    }
-
     return (
       <div key={rowID}>
-        <Accordion defaultActiveKey="0" style={{ height: 'auto' }} onChange={() => { }}>
-          {panel()}
+        <Accordion defaultActiveKey="0" style={{ height: 'auto' }} openAnimation={{}}>
+          <Accordion.Panel
+            style={{ width: '100%', height: 'auto' }}
+            key={1}
+            header={
+              <Flex align='center' style={{ minHeight: '44px' }}>
+                <div style={{ fontFamily: 'BebasNueve', fontSize: '18px', height: 'auto', overflow: 'auto', whiteSpace: 'normal', lineHeight: '24px', paddingTop: '4px', paddingBottom: '4px' }}>
+                  <b>{(parseInt(rowID) + 1)}</b>. {rowData.title}
+                </div>
+              </Flex>
+            }
+          >
+            <WingBlank>
+              {rowData.steps.map((entry) =>
+                <div key={Math.random()}>
+                  <WhiteSpace size="xs" />
+                  <div className="smallProofSteps"> {entry} </div>
+                </div>
+              )}
+              <WhiteSpace size="sm" />
+            </WingBlank>
+          </Accordion.Panel>
         </Accordion>
       </div>
     )
