@@ -1,38 +1,41 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: BebasNueve;
+  src: local('BebasNueve'), url(./fonts/BebasNeue-Regular.ttf) format('truetype');
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: Quicksand;
+  src: local('Quicksand'), url(./fonts/Quicksand-Regular.ttf) format('truetype');
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: PatrickHand;
+  src: local('PatrickHand'), url(./fonts/PatrickHand-Regular.ttf) format('truetype');
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.bigProofTitle {
+  font-family: BebasNueve;
+  font-size: 25px;
+  padding: 2px;
 }
 
-.App-link {
-  color: #61dafb;
+.bigProofSteps {
+  font-family: Quicksand;
+  font-size: 15px;
+  line-height: 1.4;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.smallProofSteps {
+  font-family: Quicksand;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.handwritten {
+  font-family: PatrickHand;
+}
+
+.am-accordion-header {
+  height: auto !important;
+  min-height: 44px;
 }
