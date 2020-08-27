@@ -19,15 +19,15 @@ function styleProof(proof) {
         </div>
       )}
 
-      { proof[0].bonus !== "" ? (
+      {proof[0].bonus !== "" ? (
         <div>
           <WhiteSpace size="xl" />
           <a href={proof[0].bonus} target="_blank" rel="noopener noreferrer">See more</a>
         </div>
       ) : (
-        <div></div>
-      )}
-       
+          <div></div>
+        )}
+
     </div>
   )
 }
@@ -44,11 +44,11 @@ function RandomProof() {
         <WhiteSpace size="lg" />
       </WingBlank>
 
-      <div style={{height: '48px'}}/>
+      <div style={{ height: '48px' }} />
       <div style={{ position: 'absolute', width: '100%', bottom: 0 }}>
-      <Button onClick={()=>{setProof(getRandomProof())}}><div className='handwritten'>GET RANDOM PROOF</div></Button>
+        <Button onClick={() => { setProof(getRandomProof()) }}><div className='handwritten'>GET RANDOM PROOF</div></Button>
       </div>
-      
+
 
     </div>
   )
