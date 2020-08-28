@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TabBar } from 'antd-mobile'
+import { TabBar, Modal } from 'antd-mobile'
 import { FileUnknownOutlined, FileUnknownFilled, ProfileOutlined, ProfileFilled } from '@ant-design/icons'
 import { disableBodyScroll } from 'body-scroll-lock'
 import RandomProof from './RandomProof'
@@ -7,6 +7,19 @@ import ProofList from './PfoorList'
 import './App.css';
 
 function App() {
+
+  const [installModalVisible, setInstallModalVisible] = useState(false)
+  const [installEvent, setInstallEvent] = useState(undefined)
+  
+
+  window.addEventListener('appinstalled', (evt) => {
+    setInstallModalVisible(false)
+  })
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    setInstallEvent(e)
+    setInstallModalVisible(true)
+  })
 
   const [selectedTab, setSelectedTab] = useState('tab1')
 
@@ -48,6 +61,26 @@ function App() {
           </TabBar.Item>
 
         </TabBar>
+
+        <Modal
+          visible={installModalVisible}
+          transparent
+          maskClosable={false}
+          title={'Install app'}
+          footer={[{
+            text: "NO",
+            onPress: ()=>{
+              setInstallModalVisible(false)
+            }
+          },{
+            text: "INSTALL",
+            onPress: ()=>{
+              installEvent.prompt()
+            }
+          }]}
+        >
+          Please install app for better user experience.
+        </Modal>
       </div>
 
     </div>

@@ -39,7 +39,7 @@ function ProofList() {
         <div className="modalTitle">{row.title}</div>
         <WhiteSpace size='sm' />
         {row.steps.map((entry) =>
-          <div className="modalEntry">
+          <div key={Math.random()} className="modalEntry">
             {entry}
           </div>
         )}
