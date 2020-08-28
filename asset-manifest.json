@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/HundredProofs/static/css/main.7feebfc0.chunk.css",
+    "main.js": "/HundredProofs/static/js/main.aa0af13a.chunk.js",
+    "main.js.map": "/HundredProofs/static/js/main.aa0af13a.chunk.js.map",
+    "runtime-main.js": "/HundredProofs/static/js/runtime-main.daa6ff84.js",
+    "runtime-main.js.map": "/HundredProofs/static/js/runtime-main.daa6ff84.js.map",
+    "static/css/2.81082e33.chunk.css": "/HundredProofs/static/css/2.81082e33.chunk.css",
+    "static/js/2.065bd717.chunk.js": "/HundredProofs/static/js/2.065bd717.chunk.js",
+    "static/js/2.065bd717.chunk.js.map": "/HundredProofs/static/js/2.065bd717.chunk.js.map",
+    "index.html": "/HundredProofs/index.html",
+    "precache-manifest.7ad4cabd8c181270a8376eb003c658dc.js": "/HundredProofs/precache-manifest.7ad4cabd8c181270a8376eb003c658dc.js",
+    "service-worker.js": "/HundredProofs/service-worker.js",
+    "static/css/2.81082e33.chunk.css.map": "/HundredProofs/static/css/2.81082e33.chunk.css.map",
+    "static/css/main.7feebfc0.chunk.css.map": "/HundredProofs/static/css/main.7feebfc0.chunk.css.map",
+    "static/js/2.065bd717.chunk.js.LICENSE.txt": "/HundredProofs/static/js/2.065bd717.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/HundredProofs/static/media/RobotoCondensed-Regular.52ee8b59.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.daa6ff84.js",
+    "static/css/2.81082e33.chunk.css",
+    "static/js/2.065bd717.chunk.js",
+    "static/css/main.7feebfc0.chunk.css",
+    "static/js/main.aa0af13a.chunk.js"
+  ]
+}
