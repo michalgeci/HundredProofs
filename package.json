@@ -1,6 +1,7 @@
 {
   "name": "proofs-of-god",
   "version": "0.1.0",
+  "homepage": "https://michalgeci.github.io/HundredProofs",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
@@ -20,7 +21,9 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
-    "serve": "serve -s build"
+    "serve": "serve -s build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,6 +43,7 @@
   "devDependencies": {
     "babel-plugin-import": "^1.13.0",
     "customize-cra": "^1.0.0",
+    "gh-pages": "^3.1.0",
     "react-app-rewired": "^2.1.6"
   }
 }
