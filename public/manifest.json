@@ -24,8 +24,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/",
+  "start_url": "https://michalgeci.github.io/HundredProofs/",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#ffffff",
   "background_color": "#55bed7"
 }
