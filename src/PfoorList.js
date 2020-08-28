@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { ListView, Modal, Button, WhiteSpace, Flex } from 'antd-mobile'
+import { Modal, Button, WhiteSpace } from 'antd-mobile'
+import { List, CellMeasurer, CellMeasurerCache, AutoSizer } from 'react-virtualized'
 import proofs from './proofs.json'
 
 function ProofList() {
@@ -20,7 +21,7 @@ function ProofList() {
       onPress: () => {
         window.open(link, "_blank")
       }
-    },{
+    }, {
       text: 'OK',
       onPress: () => {
         setModalVisible(false)
@@ -30,15 +31,11 @@ function ProofList() {
 
   const [footer, setFooter] = useState(emptyFooter)
 
-  let dataSource = new ListView.DataSource({
-    rowHasChanged: (r1, r2) => r1 !== r2,
-  })
-  dataSource = dataSource.cloneWithRows(proofs)
 
   const onSelect = (rowID) => {
     const row = proofs[rowID]
     setModalContent(
-      <div>
+      <div style={{maxHeight: '400px'}}>
         <div className="modalTitle">{row.title}</div>
         <WhiteSpace size='sm' />
         {row.steps.map((entry) =>
@@ -54,37 +51,64 @@ function ProofList() {
     setModalVisible(true)
   }
 
-  const row = (rowData, sectionID, rowID) => {
+  const Row = (index) => (
+    <div key={index}>
+      <Button className='centerLeft listButton' onClick={() => { onSelect(index) }}>
+          <div><b>{(parseInt(index) + 1)}</b>. {proofs[index].title}</div>
+        </Button>  
+    </div>
+  );
+
+
+  let cache = new CellMeasurerCache({
+    defaultHeight: 44,
+    fixedWidth: true,
+  });
+
+  let rowRenderer = ({ index, style, key, parent }) => {
     return (
-      <div key={rowID}>
-        <Button className='centerLeft listButton' onClick={() => { onSelect(rowID) }}>
-          <div><b>{(parseInt(rowID) + 1)}</b>. {rowData.title}</div>
-        </Button>
-      </div>
-    )
+      <CellMeasurer
+        cache={cache}
+        columnIndex={0}
+        key={key}
+        parent={parent}
+        rowIndex={index}
+      >
+        <div style={style} key={key}>
+          { Row(index) }
+        </div>
+      </CellMeasurer>
+    );
   }
 
   return (
     <div style={{ height: 'inherit' }}>
-      <ListView
-        dataSource={dataSource}
-        renderRow={row}
-        initialListSize={25}
-        style={{
-          height: 'inherit',
-          overflow: 'auto'
-        }}
-        pageSize={4}
-      />
+
+      <AutoSizer>
+        {({ height, width }) => 
+          <List
+            width={width}
+            height={height}
+            rowHeight={cache.rowHeight}
+            rowCount={proofs.length}
+            rowRenderer={rowRenderer}
+            scrollToIndex={parseInt( localStorage.getItem('lastItemIndex')) || 0}
+            onRowsRendered={({overscanStartIndex, overscanStopIndex, startIndex, stopIndex})=>{
+              localStorage.setItem('lastItemIndex', stopIndex)
+            }}
+          />
+        }
+      </AutoSizer>
 
       <Modal
+        style={{maxHeight: '80%', minWidth: '85%'}}
         visible={modalVisible}
         transparent
         maskClosable={true}
         onClose={() => {
           setModalVisible(false)
         }}
-        footer={ footer }
+        footer={footer}
       >
         {modalContent}
       </Modal>
