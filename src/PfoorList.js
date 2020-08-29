@@ -47,6 +47,8 @@ function ProofList() {
     )
     if (row.bonus !== "") {
       setFooter(footerWithLink(row.bonus))
+    } else {
+      setFooter(emptyFooter)
     }
     setModalVisible(true)
   }
