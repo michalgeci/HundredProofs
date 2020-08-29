@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f1c1940d217727726a3007b1066abea3",
+    "revision": "69107e6083ee77c683754447be10a680",
     "url": "/HundredProofs/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HundredProofs/static/css/2.81082e33.chunk.css"
   },
   {
-    "revision": "31adabc9c069545675cf",
+    "revision": "f141be614edde2154ecb",
     "url": "/HundredProofs/static/css/main.7feebfc0.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HundredProofs/static/js/2.065bd717.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "31adabc9c069545675cf",
-    "url": "/HundredProofs/static/js/main.aa0af13a.chunk.js"
+    "revision": "f141be614edde2154ecb",
+    "url": "/HundredProofs/static/js/main.621eaa41.chunk.js"
   },
   {
     "revision": "15f9e0024c90946697cf",
